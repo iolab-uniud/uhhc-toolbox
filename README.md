@@ -18,31 +18,60 @@ The `uhhc-toolbox` provides a command-line interface (CLI) for ease of use. Belo
 
 ### Help
 
-For detailed help on any command, use:
+For detailed help on commands, use:
+
 ```bash
-uhhc-toolbox <command> --help
+uhhc-toolbox --help
 ```
 
 ## Installation Instructions
 
-This project uses [Poetry](https://python-poetry.org/) for dependency management. To install the toolbox, follow these steps:
+### Pip
+
+To install the toolbox using `pip`, follow these steps:
 
 1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/iolab-uniud/uhhc-toolbox.git
+    cd uhhc-toolbox
+    ```
+
+2. Install the toolbox:
+
+    ```bash
+    pip install .
+    ```
+
+3. If you need the instance generator functionality, which requires `osrm-backend`, install with extras:
+
+    ```bash
+    pip install ".[generator]"
+    ```
+
+    **Note:** Ensure that `osrm-backend` is installed and properly configured on your system before using the generator.
+
+### Poetry
+
+Alternatively you can use [Poetry](https://python-poetry.org/) for dependency management. To install the toolbox, follow these steps:
+
+1. Clone the repository:
+
     ```bash
     git clone https://github.com/iolab-uniud/uhhc-toolbox.git
     cd uhhc-toolbox
     ```
 
 2. Install the dependencies:
+
     ```bash
     poetry install
     ```
 
 3. If you need the instance generator functionality, which requires `osrm-backend`, install with extras:
+
     ```bash
     poetry install --extras generator
     ```
 
     **Note:** Ensure that `osrm-backend` is installed and properly configured on your system before using the generator.
-
-You are now ready to use the `uhhc-toolbox`!
