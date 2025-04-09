@@ -1,8 +1,8 @@
 # uhhc-toolbox
 
-This toolbox provides functionalities for the generation and validation of instances related to the Unified Home Healthcare Routing and Scheduling Problem (UHHRSP).
+This toolbox provides functionalities for the generation and validation of instances related to the Unified Home Healthcare Routing and Scheduling Problem (UHHC).
 
-The UHHRSP is a complex optimization problem that involves planning and scheduling home healthcare services, considering constraints such as caregiver availability, patient requirements, time windows, and routing logistics.
+The UHHC is a complex optimization problem that involves planning and scheduling home healthcare services, considering constraints such as caregiver availability, patient requirements, time windows, and routing logistics.
 
 Key features of this toolbox include:
 
@@ -40,7 +40,7 @@ This project uses [Poetry](https://python-poetry.org/) for dependency management
 
 3. If you need the instance generator functionality, which requires `osrm-backend`, install with extras:
     ```bash
-    poetry install --with generator
+    poetry install --extras generator
     ```
 
     **Note:** Ensure that `osrm-backend` is installed and properly configured on your system before using the generator.
