@@ -1,48 +1,65 @@
-[project]
+[tool.poetry]
 name = "uhhc-toolbox"
 version = "0.1.1"
-description = ""
+description = "Utilities and CLI for the UHHC toolbox."
 authors = [
-    {name = "Luca Di Gaspero",email = "luca.digaspero@uniud.it"},
-    {name = "Francesca Da Ros",email = "francesca.daros@uniud.it"}
+  "Luca Di Gaspero <luca.digaspero@uniud.it>",
+  "Francesca Da Ros <francesca.daros@uniud.it>"
 ]
 readme = "README.md"
-requires-python = ">=3.11"
-dependencies = [
-    "click (>=8.1.8,<9.0.0)",
-    "pydantic (>=2.11.2,<3.0.0)",
-    "pandas (>=2.2.3,<3.0.0)",
-    "numpy (>=2.2.4,<3.0.0)",
-    "matplotlib (>=3.10.1,<4.0.0)",
-    "openpyxl (>=3.1.5,<4.0.0)",
-]
 license = "Apache-2.0"
+homepage = "https://github.com/iolab-uniud/uhhc-toolbox"
+repository = "https://github.com/iolab-uniud/uhhc-toolbox"
+packages = [{ include = "uhhc", from = "src" }]
+# If you ship non-.py files inside the package, uncomment and adjust:
+# include = [{ path = "src/uhhc/data/**", format = "wheel" }]
 
-[tool.poetry]
-packages = [{include = "uhhc", from = "src"}]
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+click = ">=8.1.8,<9.0.0"
+pydantic = ">=2.11.2,<3.0.0"
+pandas = ">=2.2.3,<3.0.0"
+numpy = ">=2.2.4,<3.0.0"
+matplotlib = ">=3.10.1,<4.0.0"
+openpyxl = ">=3.1.5,<4.0.0"
+
+# ---- Optional deps for the "generator" extra (mark as optional + list in [tool.poetry.extras]) ----
+country-converter = { version = ">=1.3,<2.0", optional = true }
+geopandas         = { version = ">=1.0.1,<2.0", optional = true }
+beaupy            = { version = ">=3.10.1,<4.0.0", optional = true }
+platformdirs      = { version = ">=4.3.7,<5.0.0", optional = true }
+requests          = { version = ">=2.32.3,<3.0.0", optional = true }
+shapely           = { version = ">=2.1.0,<3.0.0", optional = true }
+humanize          = { version = ">=4.12.2,<5.0.0", optional = true }
+pyproj            = { version = ">=3.7.1,<4.0.0", optional = true }
+autopage          = { version = ">=0.5.2,<0.6.0", optional = true }
+pyyaml            = { version = ">=6.0.2,<7.0.0", optional = true }
+pyosrm            = { git = "https://github.com/liuq/pyosrm", rev = "0.1.1", optional = true }
+
+[tool.poetry.extras]
+generator = [
+  "country-converter",
+  "geopandas",
+  "beaupy",
+  "platformdirs",
+  "requests",
+  "shapely",
+  "humanize",
+  "pyproj",
+  "autopage",
+  "pyyaml",
+  "pyosrm"
+]
+
+[tool.poetry.scripts]
+uhhc-toolbox = "uhhc.scripts.cli:main_cli"
+
+# (Optional) dev-only dependencies:
+# [tool.poetry.group.dev.dependencies]
+# pytest = "^8.3.0"
+# ruff = "^0.6.9"
+# mypy = "^1.11.0"
 
 [build-system]
 requires = ["poetry-core>=2.1.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.dependencies]
-python = ">=3.11,<4.0.0"
-
-[project.scripts]
-uhhc-toolbox = "uhhc.scripts.cli:main_cli"
-
-[project.optional-dependencies]
-generator = [
-    "country-converter (>=1.3,<2.0)",
-    "geopandas (>=1.0.1,<2.0)",
-    "beaupy (>=3.10.1,<4.0.0)",
-    "platformdirs (>=4.3.7,<5.0.0)",
-    "requests (>=2.32.3,<3.0.0)",
-    "shapely (>=2.1.0,<3.0.0)",
-    "humanize (>=4.12.2,<5.0.0)",
-    "pyproj (>=3.7.1,<4.0.0)",
-    "autopage (>=0.5.2,<0.6.0)",
-    "pyyaml (>=6.0.2,<7.0.0)",
-    "pyosrm @ git+https://github.com/liuq/pyosrm@0.1.1",
-]
-
