@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/960852728.svg)](https://zenodo.org/badge/latestdoi/960852728)
+
 # uhhc-toolbox
 
 This toolbox provides functionalities for the generation and validation of instances related to the Unified Home Healthcare Routing and Scheduling Problem (UHHC).
