@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "uhhc-toolbox"
-version = "0.2.1"
+version = "0.2.3"
 description = "Utilities and CLI for the UHHC toolbox."
 authors = [
   "Luca Di Gaspero <luca.digaspero@uniud.it>",
